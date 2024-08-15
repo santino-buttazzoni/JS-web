@@ -1,128 +1,58 @@
-// Numeros
-// Float -- decimales (ej: 0,1)
-// Integer -- enteros (ej: 1)
+/* Ejmplo Practico
+ * Crea un programa en JavaScript que actúe como una calculadora simple. El programa debe permitir al usuario
+ * ingresar dos números y seleccionar una operación matemática básica (suma, resta, multiplicación o división) 
+ * usando un menú presentado a través de prompt. Después de realizar la operación seleccionada, el programa debe 
+ * mostrar el resultado al usuario y preguntar si desea realizar otra operación. El programa continuará ejecutándose 
+ * hasta que el usuario decida salir escribiendo "salir". */
 
-let numeroA = 1;
-let numeroB = 2;
-const NUMEROC = 3;
+let continuar;
 
-// funcion que te permite enviar mensajes a la consola del navegador
-console.log()
+do {
+    let operacion = prompt("Elija la operacion entre: (+, -, *, /")
 
-// "" se utilizan para cuando el valor de la variable es una combinacion de simbolos
-// '' se utilizan para cuando el valor de la variable es una letra
-// sin ningun caracter especial es cuando el valor de la variable es un numero o conjunto de numeros
+    let resultado;
 
-// Operaciones basicas
-let suma = numeroA + numeroB;
-console.log(suma)
-console.log(numeroA - NUMEROC)
-let multiplicacion = numeroA * NUMEROC
-console.log(multiplicacion)
-let division = numeroB / numeroA
-console.log(division)
+    let numeroA = parseFloat(prompt("Ingrese el 1er Numero"));
+    if (isNaN(numeroA)) {
+        console.log("Che nabo, ingresa un numeroA valido.!!");
+        continue;
+    }
+    let numeroB = parseFloat(prompt("Ingrese el 2do Numero"));
+    if (isNaN(numeroB)) {
+        console.log("Che nabo, ingresa un numeroB valido.!!");
+        continue;
+    }
+    switch(operacion){
+        case '+':
+            resultado = numeroA + numeroB;
+            console.log('El resultado de la operacion entre ${numeroA} y ${numeroB} es igual a ${resultado}');
+            break;
+        case '-':
+            resultado = numeroA - numeroB;
+            console.log('El resultado de la operacion entre ${numeroA} y ${numeroB} es igual a ${resultado}');
+            break;
+        case '*':
+            resultado = numeroA * numeroB;
+            console.log('El resultado de la operacion entre ${numeroA} y ${numeroB} es igual a ${resultado}');
+            break; 
+        case '/':
+            if(numeroB === 0){
+                console.error("Error, no se puede dividir por 0")
+            }else{
+                resultado = numeroA / numeroB;
+                console.log('El resultado de la operacion entre ${numeroA} y ${numeroB} es igual a ${resultado}');
+            }
+            break;
+        default:
+            console.error("Operacion no valida");
+    }
+    continuar = prompt("Quiere seguir operando? (si/no)").toLowerCase;
+    
+    if(continuar.toLowerCase === "salir"){
+        continuar = false;
+        breack;
+    }
 
-let stringA = "Hola"
-let stringB = "Mundo"
-const ESPACIO = " "
+    } while(continuar === 'si'); 
 
-// Concatenacion de Strings
-console.log(stringA + ESPACIO + stringB)
-console.log(stringA, stringB) // la , le va a aplicar un espacio entre los valores
-
-// Prompt -- te muestra la info en la consola del navegador --
-
-let nombre = prompt("Ingrese su nombre"); // te permite ingresar datos en ventanas emergentes
-console.log("El nombre ingresado es " + nombre);
-
-let edad = prompt("Ingrese su edad");
-let email = prompt("Ingrese su email");
-
-console.log("La edad de " + nombre + " es de " + edad + " años");
-console.log("El email de " + nombre + " es " + email);
-
-// TODOS LOS DATOS DEL PROMPT SE GUARDAN COMO STRING (afecta a los numeros)
-
-// Alert -- te muestra la info como ventana emergente --
-
-alert("El nombre ingresado es " + nombre);
-alert("La edad de " + nombre + " es de " + edad + " años");
-alert("El email de " + nombre + " es " + email);
-
-// Parceo de datos -- pasar un tipo de dato a otro tipo de dato --
-let numeroS = parseInt(prompt("Ingrese un numero")); //para converter el dato en un numero entero
-let numeroJ = parseInt(prompt("Ingrese otro numero"));
-console.log(numeroS + numeroJ);
-
-// NaN --> significa que el dato ingresado NO es un NUMERO
-
-// Control de flujo
-
-// Tipo de dato Booleanos
-// VERDADERO o FAlSO -- 2 alternativas -- 
-
-const V = true;
-const F = false;
-
-// Condicionales
-// si se cumple la condicion (), entonces se ejecuta todo lo que esta entre { }
-// if (condicion) {
-//     condigo a ejecutar
-// }
-
-if(V) { // si lo que recibis es (V) ejecutas . . .
-    console.log("El dato es verdadero")
-}
-
-let numero = 0;
-
-if (numero == 0) { // si usamos 1 = estamos asiganando, si usamos 2 == estamos comparando
-    console.log("El numero ingresado es 0")
-} else { // sino . . .
-    console.log("El numero ingresado es distinto de 0")
-}
-
-// Condicionales anidados
-
-let numero0 = parseFloat(prompt("Ingrese un numero"));
-
-if (isNaN(numero)) {
-    alert("Usted No ingreso un numero");
-    numero = parseFloat(prompt("Ingrese un numero"));
-} else if (numero < 0) {
-    console.log("Usted ingreso un Numero Negativo");
-} else if (numero > 0) {
-    console.log("Usted ingreso un Numero Positivo");
-} else {
-    console.log("Usted ingreso el Numero Cero");
-}
-
-
-// Tablas de verdad
-// const V = true;
-// const F = false;
-// Operadores logicos
-
-// Operador && (and)
-console.log("Tabla de Verdad de Operador && (and)")
-console.log(V && V); // true
-console.log(V && F); // false
-console.log(F && V); // false
-console.log(F && F); // false
-
-// Operador || (or)
-console.log("Tabla de Verdad de Operador || (or)")
-console.log(V || V); // true
-console.log(V || F); // true
-console.log(F || V); // true
-console.log(F || F); // false
-
-// Ejercicio de Ejemplo
-let nombreIngresado = prompt("Ingrese su nombre");
-let apellidoIngresado = prompt("Ingrese su apellido");
-
-if ((nombreIngresado != "") && (apellidoIngresado != "")) {
-    console.log("nombre: " + nombreIngresado + "\napellido: " + apellidoIngresado);
-} else {
-    alert("Error al ingresar los datos del usuario")
-}
+    
