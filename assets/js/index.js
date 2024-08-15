@@ -93,3 +93,4 @@ switch (numeroDia){
         numeroDia = parseInt(prompt("Ingrese el dia de la semana (1-7)"));
         break; // agregarle un WHILE para que sea en bucle
 }
+
