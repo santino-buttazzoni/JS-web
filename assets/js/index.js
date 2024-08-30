@@ -1,150 +1,214 @@
-// Programacion orientada a objetos
+// ### Problema 1: Calculadora de Descuentos
+// **Nivel de dificultad: Básico**
 
-// Creamos un objeto persona
-const persona1 = {
-    nombre: "Santino",
-    edad: 19,
-    altura: 1.80,
-    email: "santinobutta@gmail.com",
-}
-const persona2 = {
-    nombre: "Alejandro",
-    edad: 48,
-    altura: 1.80,
-    email: "alejandrodistefano@gmail.com",
-}
+// **Descripción:**
+// Crea un programa que calcule el precio final de un producto después de aplicar un descuento. 
+// El usuario debe ingresar el precio original del producto y el porcentaje de descuento. 
+// El programa debe mostrar el precio final.
 
-console.log(persona1) // ejecutamos PERSONA1 en la consola y podemos ver los atributos de esa variable
+// **Objetivos:**
+// - Uso de variables.
+// - Uso de operadores aritméticos.
+// - Manejo de entradas y salidas con `prompt` y `console.log`.
 
-console.log(persona1.nombre) // accedemos directamente al NOMBRE de PERSONA1
+let precioOriginal = parseFloat(prompt("Ingrese el precio original del Producto"));
+let porcentajeDescuento = parseFloat(prompt("Ingrese el porcentaje de Descuento a Aplicar"));
 
-persona1["email"] = "santinob@gmail.com"; // reasignamos el valor de un atributo de la persona / objeto
+console.log("El Precio final es: $", precioOriginal - (precioOriginal * porcentajeDescuento / 100));
 
-// Definimos un objeto
+// ### Problema 2: Contador de Números Pares
+// **Nivel de dificultad: Básico**
 
-const objeto = {
-    clave: "valor",
-    clave: "valor",
-    clave: "valor",
-    clave: "valor",
-    clave: "valor",
-}
+// **Descripción:**
+// Crea un programa que cuente cuántos números pares hay entre 1 y un número dado por el usuario. 
+// El programa debe usar un ciclo para recorrer los números y contar cuántos son pares.
 
-// Uso de constructores
+// **Objetivos:**
+// - Uso de ciclos (`for` o `while`).
+// - Uso de condicionales (`if`).
+// - Manejo de entradas y salidas.
 
-// Uso de this
-// estructura ej:
+let limite = parseInt(prompt("Ingrese un numero"));
 
-// aca definimos la estructura de todos los obejetos "Persona"
-function Persona(nombre, edad, altura, email){ // todas las personas se definiran de esta forma
-    this.nombre = nombre;
-    this.edad = edad;
-    this.altura = altura;
-    this.email = email;
-}
+let contador = 0;
 
-// Instancia de objeto -> creamos un objeto
-const personaA = new Persona("Juan Carlos", 20, 1.90, "juancarlos@gmail.com");
-const personaB = new Persona("Valentin", 35, 1.82, "valentinR@gmail.com" );
-
-console.log(personaA);
-console.log(personaB);
-
-// Diferencia entre funcion y metodo
-// la FUNCION es de uso global 
-// el METODO es una funcion propia de un objeto y solo puede ser usada con ese objeto
-
-let cadena = "Hola Santino";
-
-console.log(typeof(cadena)); // typeof nos dice si es un String o Numero
-
-// El string es un objeto que tiene sus propios metodos
-console.log(cadena.toUpperCase());
-console.log(cadena.toLowerCase());
-
-function saludar(){
-    console.log("Hola")
-}
-
-saludar() // FUNCION
-toUpperCase() // METODO -> solo puede ser llamada desde el objeto en el cual fue creado
-cadena.toUpperCase() // forma CORRECTA de llamar al METODO dentro de "cadena"
-
-// los OBJETOS tienen ATRIBUTOS y METODOS
-
-function PERSONA(nombre, edad, altura, email){
-    // Atributos
-    this.nombre = nombre;
-    this.edad = edad;
-    this.altura = altura;
-    this.email = email;
-    // Metodos
-    this.hablar = function() {console.log("Hola soy " + this.nombre)};
-}
-
-const persona11 = new Persona("Juan Carlos", 20, 1.90, "juancarlos@gmail.com");
-const persona10 = new Persona("Valentin", 35, 1.82, "valentinR@gmail.com" );
-// ambos son una instancia del objeto que ya definimos
-
-// asignamos el metodo a la instancia definida
-persona11.hablar() 
-
-// Operador IN -> para saber que atributos existen en un objeto
-console.log("nombre" in persona11); // true
-console.log("apellido" in persona10); // false
-
-// El operador IN devuelve true si la porpiedad especifica existe en el objeto
-
-// FOR IN
-for(const propiedad in persona11){
-    console.log(persona11[propiedad]);
-}
-// Mientras que el bucle FOR ... IN permite acceder a todas las propiedades del obejto
-// obteniendo una propiedad por cada interacion 
-
-// Clases 
-class Vehiculo{
-    // atributos
-    constructor(color, categoria, ruedas, marca, motor){
-        this.color = color;
-        this.categoria = categoria;
-        this.ruedas = ruedas;
-        this.marca = marca;
-        this.motor = motor;
-    }
-    // metodos
-    encender(){
-        console.log("El/La " + this.categoria + "esta encendido");
+for(let i = 1; i <= limite; i++) { // i es el Iterador
+    if(i % 2 === 0) { // Esto es para los Pares
+        contador++;
     }
 }
+console.log("La antidad de Numeros Pares entre 1 y " 
+            + limite + ", es de: " + contador + " números.");
 
-const auto = new Vehiculo("Azul", "Auto", 4, "Ford", "V8");
-auto.encender()
+// ### Problema 3: Calculadora de Sueldos
+// **Nivel de dificultad: Intermedio**
 
-// ejemplo -> creacion de contructor y clases
+// **Descripción:**
+// Crea un programa que calcule el sueldo total de un empleado basado en su salario base y las horas extra trabajadas. 
+// El programa debe pedir al usuario el salario base, el número de horas extra
+// y la tarifa de pago por hora extra. Luego, el programa debe calcular y mostrar el sueldo total.
 
-class Producto{
-    // atributos
-    constructor(nombre, precios, stock, categoria){
+// **Objetivos:**
+// - Creación de funciones para realizar cálculos.
+// - Uso de operadores aritméticos.
+// - Uso de condicionales y ciclos para validar entradas.
+
+let salarioBase = parseFloat(prompt("Ingrese el salario Base: "))
+let horasExtra = parseInt(prompt("Ingrese la cantidad de Horas Extra"))
+let tarifaHoraExtra = parseFloat(prompt("Ingrese la tarifa de la Hora Extra"))
+
+const calcularSueldo = (salario, horas, tarifa) => {
+    let pagoExtra = horas * tarifa;    
+    return salario + pagoExtra;
+}
+
+let sueldoTotal = calcularSueldo(salarioBase, horasExtra, tarifaHoraExtra);
+
+console.log("El sueldo total es de: $",  sueldoTotal.toFixed(2));
+
+// ### Problema 4: Agenda de Contactos
+// **Nivel de dificultad: Intermedio**
+
+// **Descripción:**
+// Crea un programa que simule una agenda de contactos básica. 
+// El programa debe permitir al usuario agregar un contacto (nombre y número de teléfono) 
+// y mostrar todos los contactos guardados. Debe ser capaz de almacenar múltiples contactos.
+
+// **Objetivos:**
+// - Introducción al uso de objetos en JavaScript.
+// - Uso de funciones para agregar y mostrar contactos.
+// - Uso de un ciclo para recorrer los contactos.
+
+let agenda = []; // Definimos un Array (lista) vacio.
+
+const agregarContacto = (nombre , telefono) => {
+    let contacto = {
+        nombre: nombre,
+        telefono: telefono
+    }
+    agenda.push(contacto);
+}
+
+const mostrarContacto = () => {
+    console.log(agenda);
+}
+
+let continuar;
+
+do{
+    let nombre = prompt("Ingrese un Nombre");
+    let telefono = parseInt(prompt("Ingrese el telefono"));
+
+    if(isNaN(telefono) || telefono <= 0) {
+        console.error("Ingrese un telefono valido")
+        continue;
+    }
+
+    agregarContacto(nombre, telefono);
+
+    continuar = prompt("¿Desea cargar otro contacto? (si/no)").toLowerCase();
+
+}while(continuar === 'si');
+
+mostrarContacto();
+
+// ### Problema 5: Sistema de Gestión de Productos (Versión Simplificada)
+// **Nivel de dificultad: Intermedio-Avanzado**
+
+// **Descripción:**
+// Crea un programa que permita gestionar un solo producto en un inventario. 
+// El programa debe permitir al usuario agregar un producto con su nombre, 
+// precio y cantidad en stock, vender parte del stock y mostrar la información del producto.
+
+// **Objetivos:**
+// - Creación de una clase `Producto`.
+// - Uso de métodos para manipular los datos del producto.
+// - Uso de un ciclo para interactuar con el usuario.
+
+class Producto {
+    constructor (nombre, precio, stock) {
         this.nombre = nombre;
-        this.precio = parseFloat(precio);
-        this.stock = parseFloat(stock);
-        this.categoria = categoria;
-        this.vendido = false;
+        this.precio = precio;
+        this.stock = stock;
     }
-    // metodos
-    sumarIva(){
-        this.precio = this.precio * 1.21;
+
+    vender(cantidad) {
+        if (cantidad <= this.stock){
+            this.stock -= cantidad;
+            console.log(`Se vendieron ${cantidad} unidades de ${this.nombre}`);
+        } else {
+            console.error("Error, no hay suficiente stock para vender " + cantidad + " de este producto")
+        }
     }
-    vender(){
-        this.vendido = true;
-        console.log("El producto " + this.nombre + "se vendio!");
-        console.log("Ahora quedan en stock " + this.stock - 1);
+
+    mostrarInformacion(){
+        console.log(
+            "Producto: " + this.nombre + "\n" +
+            "Precio: $" + this.precio + "\n" +
+            "Stock disponible: " + this.stock + "\n"
+        )
     }
 }
+    let nombreProducto = prompt("Ingrese el Nombre del Producto");
+    let precioProducto = parseFloat(prompt("Ingrese el Precio"));
+    if (isNaN(precioProducto) || precioProducto <= 0){
+        console.error("Error, Ingrese un Precio correcto")
+    }
+    
+    let stockProducto = parseInt(prompt("Ingrese el Stock Inicial"))
+    if (isNaN(stockProducto) || stockProducto <= 0){
+        console.error("Error, Ingrese un Stock correcto")
+    }
+    
+    const producto1 = new Producto(nombreProducto, precioProducto, stockProducto);
 
-const producto1 = new Producto("Azucar", 1250, 100, "cocina");
-const producto2 = new Producto("Fernet", 10820, 24, "bebidas");
+    producto1.mostrarInformacion();
+    
+    let cantidadAVender = parseInt(prompt("Ingrese la cantidad de " 
+                            + producto1.nombre + " que desea Vender"));
+    
+    producto1.vender(cantidadAVender);
+    
+    producto1.mostrarInformacion();
 
-producto1.sumarIva();
-producto1.vender();
+/**
+ * ### Problema 6: Perfil de Usuario
+    Descripción: Crea un programa que gestione un perfil de usuario. 
+    El programa debe permitir al usuario ingresar su nombre, edad y 
+    correo electrónico, y luego mostrar esta información en la consola.
+
+    Objetivos:
+
+    Introducción al uso de objetos en JavaScript.
+    Uso de funciones para establecer y mostrar las propiedades de un objeto.
+ * 
+ */
+
+    class Usuario{
+        constructor(nombre, edad, email){
+            this.nombre = nombre;
+            this.edad = edad;
+            this.email = email
+        }
+        mostrarPerfilDeUsuario(){
+            console.log(
+                            "Perfil del Usuario:\n" + 
+                            "-------------------\n" + 
+                            "Nombre: " + this.nombre + "\n" +
+                            "Edad: " + this.edad + "\n" +
+                            "Correo Electrónico: " + this.email
+                        )
+        }
+    }
+    
+    let nombreUsuario = prompt("Ingrese el Nombre del Usuario");
+    let edadUsuario = parseInt(prompt("Ingrese la Edad del Usuario"));
+    if (isNaN(edadUsuario) || edadUsuario <= 0){
+        console.error("Error, Ingrese una Edad correcta")
+    }
+    let emailUsuario = prompt("Ingrese el Email del Usuario");
+    
+    const usuario1 = new Usuario(nombreUsuario, edadUsuario, emailUsuario);
+    
+    usuario1.mostrarPerfilDeUsuario();
+
