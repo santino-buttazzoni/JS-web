@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nombre": "Laptop Gaming",
+        "precio": 1200,
+        "descripcion": "Laptop de alto rendimiento para gaming con gráficos dedicados",
+        "imagen": "https://via.placeholder.com/200x200/007bff/ffffff?text=Laptop"
+    },
+    {
+        "id": 2,
+        "nombre": "Smartphone Pro",
+        "precio": 800,
+        "descripcion": "Smartphone de última generación con cámara profesional",
+        "imagen": "https://via.placeholder.com/200x200/28a745/ffffff?text=Phone"
+    },
+    {
+        "id": 3,
+        "nombre": "Auriculares Wireless",
+        "precio": 150,
+        "descripcion": "Auriculares bluetooth con cancelación de ruido",
+        "imagen": "https://via.placeholder.com/200x200/dc3545/ffffff?text=Headphones"
+    },
+    {
+        "id": 4,
+        "nombre": "Tablet Ultra",
+        "precio": 500,
+        "descripcion": "Tablet de 10 pulgadas con pantalla retina",
+        "imagen": "https://via.placeholder.com/200x200/ffc107/000000?text=Tablet"
+    },
+    {
+        "id": 5,
+        "nombre": "Smartwatch Sport",
+        "precio": 300,
+        "descripcion": "Reloj inteligente con GPS y monitor cardíaco",
+        "imagen": "https://via.placeholder.com/200x200/17a2b8/ffffff?text=Watch"
+    },
+    {
+        "id": 6,
+        "nombre": "Cámara DSLR",
+        "precio": 900,
+        "descripcion": "Cámara réflex digital profesional 24MP",
+        "imagen": "https://via.placeholder.com/200x200/6f42c1/ffffff?text=Camera"
+    }
+]
